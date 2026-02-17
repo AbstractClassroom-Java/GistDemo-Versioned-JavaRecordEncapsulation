@@ -7,55 +7,51 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        ContactInfo personal = new ContactInfo(
-                "John",
-                "A.",
-                "Doe",
-                "555-123-4567",
-                "john.doe@example.com",
-                "123 Main St",
-                "Anytown",
-                "CA",
-                "90210",
-                "USA",
-                LocalDate.of(1985, 5, 15)
-        );
+        ContactInfo personal = ContactInfo.builder()
+                .firstName("John")
+                .middleName("A.")
+                .lastName("Doe")
+                .phoneNumber("555-123-4567")
+                .emailAddress("john.doe@example.com")
+                .streetAddress("123 Main St")
+                .city("Anytown")
+                .state("CA")
+                .zipCode("90210")
+                .country("USA")
+                .birthDate(LocalDate.of(1985, 5, 15))
+                .build();
 
-        ContactInfo emerg1 = new ContactInfo(
-                "Jane",
-                null,
-                "Doe",
-                "555-987-6543",
-                "jane.doe@example.com",
-                "123 Main St",
-                "Anytown",
-                "CA",
-                "90210",
-                "USA",
-                null
-        );
+        ContactInfo emerg1 = ContactInfo.builder()
+                .firstName("Jane")
+                .lastName("Doe")
+                .phoneNumber("555-987-6543")
+                .emailAddress("jane.doe@example.com")
+                .streetAddress("123 Main St")
+                .city("Anytown")
+                .state("CA")
+                .zipCode("90210")
+                .country("USA")
+                .build();
 
-        ContactInfo emerg2 = new ContactInfo(
-                "Bob",
-                null,
-                "Smith",
-                "555-000-1111",
-                "bob.smith@example.com",
-                "456 Elm St",
-                "Othertown",
-                "CA",
-                "90001",
-                "USA",
-                null
-        );
+        ContactInfo emerg2 = ContactInfo.builder()
+                .firstName("Bob")
+                .lastName("Smith")
+                .phoneNumber("555-000-1111")
+                .emailAddress("bob.smith@example.com")
+                .streetAddress("456 Elm St")
+                .city("Othertown")
+                .state("CA")
+                .zipCode("90001")
+                .country("USA")
+                .build();
 
-        Employee johnDoe = new Employee(
-                1234567,
-                personal,
-                LocalDate.of(2010, 6, 1),
-                emerg1,
-                emerg2
-        );
+        Employee johnDoe = Employee.builder()
+                .employeeId(1234567)
+                .personalContact(personal)
+                .hireDate(LocalDate.of(2010, 6, 1))
+                .emergContact1(emerg1)
+                .emergContact2(emerg2)
+                .build();
 
         System.out.println(johnDoe);
 

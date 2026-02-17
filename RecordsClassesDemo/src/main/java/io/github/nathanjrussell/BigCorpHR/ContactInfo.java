@@ -38,4 +38,101 @@ public record ContactInfo(
         if (birthDate != null) sb.append("Birth Date: ").append(birthDate).append("\n");
         return sb.toString();
     }
+
+    /**
+     * Returns a new Builder instance for fluent construction of a ContactInfo record.
+     */
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    /**
+     * Fluent builder for ContactInfo.
+     */
+    public static class Builder {
+        private String firstName;
+        private String middleName;
+        private String lastName;
+        private String phoneNumber;
+        private String emailAddress;
+        private String streetAddress;
+        private String city;
+        private String state;
+        private String zipCode;
+        private String country;
+        private LocalDate birthDate;
+
+        public Builder() {}
+
+        public Builder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder middleName(String middleName) {
+            this.middleName = middleName;
+            return this;
+        }
+
+        public Builder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public Builder phoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
+            return this;
+        }
+
+        public Builder emailAddress(String emailAddress) {
+            this.emailAddress = emailAddress;
+            return this;
+        }
+
+        public Builder streetAddress(String streetAddress) {
+            this.streetAddress = streetAddress;
+            return this;
+        }
+
+        public Builder city(String city) {
+            this.city = city;
+            return this;
+        }
+
+        public Builder state(String state) {
+            this.state = state;
+            return this;
+        }
+
+        public Builder zipCode(String zipCode) {
+            this.zipCode = zipCode;
+            return this;
+        }
+
+        public Builder country(String country) {
+            this.country = country;
+            return this;
+        }
+
+        public Builder birthDate(LocalDate birthDate) {
+            this.birthDate = birthDate;
+            return this;
+        }
+
+        public ContactInfo build() {
+            return new ContactInfo(
+                    firstName,
+                    middleName,
+                    lastName,
+                    phoneNumber,
+                    emailAddress,
+                    streetAddress,
+                    city,
+                    state,
+                    zipCode,
+                    country,
+                    birthDate
+            );
+        }
+    }
 }
