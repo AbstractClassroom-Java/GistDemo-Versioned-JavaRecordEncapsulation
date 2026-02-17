@@ -1,2 +1,3 @@
-# GistDemoRep-Records_Builder_Patterns
-This repo is associated with a GitHub gist to demonstrate data encapsulation using Java record classes.  Class builder patterns are also introduced.
+# Main Branch
+
+This branch is effectively the same as the `polished` branch.  The content from the `polished` branch was merged into `main` branch as the result of a pull request.
