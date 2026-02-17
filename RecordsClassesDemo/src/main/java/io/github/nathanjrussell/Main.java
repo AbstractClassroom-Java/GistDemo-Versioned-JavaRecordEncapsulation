@@ -27,5 +27,6 @@ public class Main {
         Even if we defined specific getter methods for each field, it would be difficult
         to construct meaningful contact information for emergency contact 1.
          */
+        System.out.println(johnDoe.emergContPhoneNumber());
     }
 }
