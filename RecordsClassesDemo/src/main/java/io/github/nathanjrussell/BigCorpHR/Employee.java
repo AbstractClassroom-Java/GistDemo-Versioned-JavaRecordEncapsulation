@@ -75,19 +75,27 @@ public record Employee(
 
     @Override
     public String toString() {
+        return toString(0);
+    }
+
+    public String toString(int indentLevel) {
         StringBuilder sb = new StringBuilder();
-        sb.append("Employee ID: ").append(employeeId).append("\n");
-        if (personalContact != null) {
-            sb.append(personalContact.toString());
-        }
+        String indent = "\t".repeat(indentLevel);
+        sb.append(indent).append("Employee ID: ").append(employeeId).append("\n");
+        indentLevel += 1;
+        indent = "\t".repeat(indentLevel);
         if (hireDate != null) {
-            sb.append("Hire Date: ").append(hireDate).append("\n");
+            sb.append(indent).append("Hire Date: ").append(hireDate).append("\n");
         }
+        if (personalContact != null) {
+            sb.append(indent).append("Employee Contact Info:\n").append(personalContact.toString(indentLevel + 1));
+        }
+
         if (emergContact1 != null) {
-            sb.append("Emergency Contact 1:\n").append(emergContact1.toString());
+            sb.append(indent).append("Emergency Contact 1:\n").append(emergContact1.toString(indentLevel + 1));
         }
         if (emergContact2 != null) {
-            sb.append("Emergency Contact 2:\n").append(emergContact2.toString());
+            sb.append(indent).append("Emergency Contact 2:\n").append(emergContact2.toString(indentLevel + 1));
         }
         return sb.toString();
     }
