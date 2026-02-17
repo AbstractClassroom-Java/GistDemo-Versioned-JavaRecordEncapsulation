@@ -1,2 +1,3 @@
-# GistDemoRep-Records_Builder_Patterns
-This repo is associated with a GitHub gist to demonstrate data encapsulation using Java record classes.  Class builder patterns are also introduced.
+# Record Version
+
+This branch demonstrates how data can be encapsulated quickly using Java `record` classes.
