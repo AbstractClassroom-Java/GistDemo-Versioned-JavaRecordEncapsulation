@@ -1,2 +1,3 @@
-# GistDemoRep-Records_Builder_Patterns
-This repo is associated with a GitHub gist to demonstrate data encapsulation using Java record classes.  Class builder patterns are also introduced.
+# Nested Records
+
+This branch demonstrates how to encapsulate data using nested branches.  Human contact information is encapsulated into a dedicated encapsulation `record` class.
