@@ -1,2 +1,3 @@
-# GistDemoRep-Records_Builder_Patterns
-This repo is associated with a GitHub gist to demonstrate data encapsulation using Java record classes.  Class builder patterns are also introduced.
+# Polished
+
+This repo demonstrates modular string formatting techniques within nested record classes to produce tidy toString() formatting.
