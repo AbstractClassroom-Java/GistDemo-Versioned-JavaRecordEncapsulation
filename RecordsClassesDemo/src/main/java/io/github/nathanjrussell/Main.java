@@ -1,31 +1,61 @@
 package io.github.nathanjrussell;
 
+import io.github.nathanjrussell.BigCorpHR.ContactInfo;
 import io.github.nathanjrussell.BigCorpHR.Employee;
+
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        /*
-        Notice how clumsy and error-prone this constructor appears.
-        There are nearly 30 parameters that have to be passed in the correct order with the correct types.
-        A change in the Employee class constructor requires onerous changes to all code associated with creating Employee objects.
-        The code is difficult to read and understand.
-        */
-        Employee johnDoe = new Employee(
-                1234567,
-                "John", "A.", "Doe", "555-123-4567", "john.doe@example.com",
-                "123 Main St", "Anytown", "CA", "90210", "USA",
-                1985, 5, 15,
-                2010, 6, 1,
-                "Jane", "Doe", "555-987-6543", "jane.doe@example.com", "123 Main St", "Anytown", "CA", "90210", "USA",
-                "Bob", "Smith", "555-000-1111", "bob.smith@example.com", "456 Elm St", "Othertown", "CA", "90001", "USA"
-        );
+        ContactInfo personal = ContactInfo.builder()
+                .firstName("John")
+                .middleName("A.")
+                .lastName("Doe")
+                .phoneNumber("555-123-4567")
+                .emailAddress("john.doe@example.com")
+                .streetAddress("123 Main St")
+                .city("Anytown")
+                .state("CA")
+                .zipCode("90210")
+                .country("USA")
+                .birthDate(LocalDate.of(1985, 5, 15))
+                .build();
+
+        ContactInfo emerg1 = ContactInfo.builder()
+                .firstName("Jane")
+                .lastName("Doe")
+                .phoneNumber("555-987-6543")
+                .emailAddress("jane.doe@example.com")
+                .streetAddress("123 Main St")
+                .city("Anytown")
+                .state("CA")
+                .zipCode("90210")
+                .country("USA")
+                .build();
+
+        ContactInfo emerg2 = ContactInfo.builder()
+                .firstName("Bob")
+                .lastName("Smith")
+                .phoneNumber("555-000-1111")
+                .emailAddress("bob.smith@example.com")
+                .streetAddress("456 Elm St")
+                .city("Othertown")
+                .state("CA")
+                .zipCode("90001")
+                .country("USA")
+                .build();
+
+        Employee johnDoe = Employee.builder()
+                .employeeId(1234567)
+                .personalContact(personal)
+                .hireDate(LocalDate.of(2010, 6, 1))
+                .emergContact1(emerg1)
+                .emergContact2(emerg2)
+                .build();
 
         System.out.println(johnDoe);
 
-        /*
-        What if we just wanted to get the phone number for emergency contact 1?
-        Even if we defined specific getter methods for each field, it would be difficult
-        to construct meaningful contact information for emergency contact 1.
-         */
+        // Access an emerg contact phone via the emergContact record
+        System.out.println("Emergency 1 phone: " + johnDoe.emergContact1().phoneNumber());
     }
 }
